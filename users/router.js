@@ -311,6 +311,8 @@ router.put('/', jsonParser, jwtAuth, (req, res) => {
 
                 return res.sendStatus(422)
             }
+            console.log("Here");
+            console.log(user);
             let updateStatus = user.firstName ? 'updated' : 'created';
 
 

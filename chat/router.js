@@ -6,26 +6,28 @@ const { User } = require('../users/models');
 const router = express.Router();
 const jsonParser = bodyParser.json();
 const config = require('../config');
-
+const mailgun = require("mailgun-js");
 
 router.post('/', jsonParser, (req, res) => {
-  const api_key = 'key-f97937bb84680705a55914dad0c93217';
-  const domain = 'sandboxc1770a2ad14b4f9ba4de9e6ece502492.mailgun.org';
-  const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
-   
+  console.log(req.body);
+  const api_key = "329445b33c84c33866406a84aa4b76ef-5e7fba0f-919bf1ae";
+  const domain = 'sandboxc4716665f63949b2bc28af324d76c505.mailgun.org';
+  const mg = mailgun({apiKey: api_key, domain: domain});
+
   let data = {
-    from: 'Roommate Finder <postmaster@sandboxc1770a2ad14b4f9ba4de9e6ece502492.mailgun.org>',
+    from: req.body.senderEmail,
     to: req.body.receiverEmail,
     subject: `Message from Roommate Finder`,
     text:  
-     `
-       You have received a new message from Roommate Finder. 
+     `You have received a new message from Roommate Finder.
        Email: ${req.body.senderEmail}
        Message:
        ${req.body.message}`
   };
    
-  mailgun.messages().send(data, function (error, body) {
+  mg.messages().send(data, function (error, body) {
+    console.log(error)
+    console.log(body)
     if(!error) {
       res.send('Mail Sent');
     }
