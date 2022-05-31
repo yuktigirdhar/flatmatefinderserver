@@ -10,9 +10,9 @@ const mailgun = require("mailgun-js");
 
 router.post('/', jsonParser, (req, res) => {
   console.log(req.body);
-  const api_key = "329445b33c84c33866406a84aa4b76ef-5e7fba0f-919bf1ae";
-  const domain = 'sandboxc4716665f63949b2bc28af324d76c505.mailgun.org';
-  const mg = mailgun({apiKey: api_key, domain: domain});
+  const api_key = "api key";
+  const domain = 'domain';
+  const mg = mailgun({apiKey: api_key, domain: domain,host: "api.mailgun.net"});
 
   let data = {
     from: req.body.senderEmail,

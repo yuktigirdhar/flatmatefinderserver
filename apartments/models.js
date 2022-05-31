@@ -60,10 +60,10 @@ UserSchema.methods.apiRepr = function(){
   return {
     id: this._id,
     firstName: this.firstName,
+    lastName: this.lastName,
+    username: this.username,
     address: this.address,
     zipcode: this.zipcode,
-    lastName: this.lastName,
-    username: this.username, 
     city: this.city, 
     state: this.state, 
     age: this.age,

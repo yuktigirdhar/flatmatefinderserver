@@ -9,6 +9,7 @@ const { PORT, CLIENT_ORIGIN, DATABASE_URL, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API
 const { router: usersRouter } = require('./users'); 
 const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
 const { router: chatRouter } = require('./chat');
+const { router: apartmentsRouter } = require('./apartments');
 
 const app = express(); 
 
@@ -38,6 +39,7 @@ app.use(
 app.use('/api/users/', usersRouter);
 app.use('/api/auth/', authRouter); 
 app.use('/api/chat/', chatRouter);
+app.use('/api/apartments/', apartmentsRouter);
 
 
 app.get('/test', (req, res) => {

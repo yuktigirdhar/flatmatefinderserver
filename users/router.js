@@ -321,6 +321,8 @@ router.put('/', jsonParser, jwtAuth, (req, res) => {
 
             user.firstName = req.body.firstName ? req.body.firstName : user.firstName;
             user.lastName = req.body.lastName ? req.body.lastName : user.lastName;
+            user.address = req.body.address ? req.body.address : user.address;
+            user.zipcode = req.body.zipcode ? req.body.zipcode : user.zipcode;
             user.city = req.body.city ? req.body.city : user.city;
             user.state = req.body.state ? req.body.state : user.state;
             user.age = req.body.age ? req.body.age : user.age;
