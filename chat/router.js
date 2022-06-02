@@ -9,13 +9,12 @@ const config = require('../config');
 const mailgun = require("mailgun-js");
 
 router.post('/', jsonParser, (req, res) => {
-  console.log(req.body);
-  const api_key = "api key";
-  const domain = 'domain';
-  const mg = mailgun({apiKey: api_key, domain: domain,host: "api.mailgun.net"});
+  const api_key = '';
+  const domain = '';
+  const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
   let data = {
-    from: req.body.senderEmail,
+    from: 'Flatmate Finder <flatmatefinderhome@gmail.com>',
     to: req.body.receiverEmail,
     subject: `Message from Roommate Finder`,
     text:  
