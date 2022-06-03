@@ -18,8 +18,17 @@ router.get('/:status', jsonParser, (req, res) => {
 });
 
 router.get('/', jsonParser, (req, res) => {
-    User.find({ looking_for: 'fill_a_room' })
-        .then(users => res.json(users.map(user => user.apiRepr())));
+    User.find()
+        .then(users => {
+
+                let myusers = users.map( user => user.apiRepr() )
+                myusers = myusers.filter( function (e) {
+                    console.log(e.address)
+                    return e.address!==undefined && e.address!=="" && e.address!=null
+                })
+                res.json(myusers)
+            }
+        );
 });
 
 module.exports = { router };
