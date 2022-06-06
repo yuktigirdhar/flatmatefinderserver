@@ -315,9 +315,11 @@ router.put('/', jsonParser, jwtAuth, (req, res) => {
             console.log(user);
             let updateStatus = user.firstName ? 'updated' : 'created';
 
-
             cloudinary.uploader.upload(req.body.picture,
             function(result) { console.log("CLOUDINARY", result) })
+
+            cloudinary.uploader.upload(req.body.apartmentpicture,
+            function(result) { console.log("CLOUDINARY 2", result) })
 
             user.firstName = req.body.firstName ? req.body.firstName : user.firstName;
             user.lastName = req.body.lastName ? req.body.lastName : user.lastName;
@@ -353,7 +355,8 @@ router.put('/', jsonParser, jwtAuth, (req, res) => {
             user.music = req.body.music ? req.body.music : user.music;
             user.movies = req.body.movies ? req.body.movies : user.movies;
             user.tv = req.body.tv ? req.body.tv : user.tv;
-            user.picture = req.body.picture ? req.body.picture : user.picture; 
+            user.picture = req.body.picture ? req.body.picture : user.picture;
+            user.apartmentpicture = req.body.apartmentpicture ? req.body.apartmentpicture : user.apartmentpicture;
             user.lat = req.body.lat ? req.body.lat : user.lat;
             user.long = req.body.long ? req.body.long : user.long;
             user.save();
