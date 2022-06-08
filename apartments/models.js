@@ -54,6 +54,8 @@ const UserSchema = mongoose.Schema({
   ],
   picture: {type: String},
   apartmentpicture: {type: String},
+  numberofrooms: {type: String},
+  amenities: {type: String},
   email: {type: String}
 });
 
@@ -101,7 +103,9 @@ UserSchema.methods.apiRepr = function(){
     lat: this.lat,
     long: this.long,
     email: this.email,
-    apartmentpicture: this.apartmentpicture
+    apartmentpicture: this.apartmentpicture,
+    numberofrooms: this.numberofrooms,
+    amenities: this.amenities
   };
 };
 

@@ -357,6 +357,8 @@ router.put('/', jsonParser, jwtAuth, (req, res) => {
             user.tv = req.body.tv ? req.body.tv : user.tv;
             user.picture = req.body.picture ? req.body.picture : user.picture;
             user.apartmentpicture = req.body.apartmentpicture ? req.body.apartmentpicture : user.apartmentpicture;
+            user.numberofrooms = req.body.numberofrooms ? req.body.numberofrooms : user.numberofrooms;
+            user.amenities = req.body.amenities ? req.body.amenities : user.amenities;
             user.lat = req.body.lat ? req.body.lat : user.lat;
             user.long = req.body.long ? req.body.long : user.long;
             user.save();
