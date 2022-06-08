@@ -23,8 +23,8 @@ router.post('/', jsonParser, (req, res) => {
        Message:
        ${req.body.message}`
   };
-   
-  mg.messages().send(data, function (error, body) {
+
+  mailgun.messages().send(data, function (error, body) {
     console.log(error)
     console.log(body)
     if(!error) {
