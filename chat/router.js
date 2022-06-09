@@ -16,9 +16,9 @@ router.post('/', jsonParser, (req, res) => {
   let data = {
     from: 'Flatmate Finder <flatmatefinderhome@gmail.com>',
     to: req.body.receiverEmail,
-    subject: `Message from Roommate Finder`,
+    subject: `Message from Bunk Up`,
     text:  
-     `You have received a new message from Roommate Finder.
+     `You have received a new message from Bunk Up.
        Email: ${req.body.senderEmail}
        Message:
        ${req.body.message}`
